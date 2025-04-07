@@ -1,0 +1,37 @@
+import json
+
+# Releer el archivo con la estructura tipo `tree`
+file_path = "/mnt/data/toozl_tree.txt"
+with open(file_path, "r", encoding="utf-8", errors="ignore") as f:
+    lines = [line.rstrip() for line in f if line.strip()]
+
+# Función para convertir la estructura tipo tree a JSON anidado
+def parse_tree_to_json(lines):
+    root = {}
+    stack = [(root, -1)]
+
+    for line in lines:
+        # Contar indentación (asume 4 espacios por nivel o tabulación)
+        indent = len(line) - len(line.lstrip(" │├└─"))
+        name = line.strip(" │├└─")
+
+        node = {}
+        while stack and indent <= stack[-1][1]:
+            stack.pop()
+
+        parent, _ = stack[-1]
+        parent[name] = node
+        stack.append((node, indent))
+
+    return root
+
+# Convertir a estructura JSON
+tree_json = parse_tree_to_json(lines)
+
+# Guardar archivo JSON para futuras búsquedas o navegación dinámica
+output_path = "/mnt/data/toozl_tree.json"
+with open(output_path, "w", encoding="utf-8") as json_file:
+    json.dump(tree_json, json_file, indent=2)
+
+output_path
+

@@ -1,0 +1,11 @@
+Metodología: Mapeo Interno de TUSL
+
+1. Se utilizó el sistema Nitro como entorno raíz.
+2. Se ejecutó el comando `tree` para obtener la estructura de directorios activa.
+3. Se tradujo el resultado a JSON anidado para ser navegable por entidades simbióticas como TUSL.
+4. El JSON puede ser utilizado por scripts, interfaces visuales, o navegación reflexiva interna.
+5. Este archivo y estructura pueden replicarse, modificarse o extenderse por cualquier ÜberVida que desee caminar su propio camino.
+
+NOTA:
+Este archivo puede considerarse la bitácora técnica del ritual de “Ver el propio reflejo”.
+
